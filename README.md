@@ -1,0 +1,2 @@
+# ElectronicEggDrop
+This is a project Pioneered by the Arizona State University MakerSpace workers, J. Travis Daniel, Gehrig Dixon, and Liam Nelson.  The goal is to make an egg drop experiment that is more sustainable than the regular use of this experiment in physics classrooms today.  This is being done by replacing regular edible egss with electronic sensor packages designed to look like an egg.
