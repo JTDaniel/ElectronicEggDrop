@@ -1,8 +1,10 @@
+
+// Basic demo for accelerometer readings from Adafruit LIS3DH//
+
 #include <Wire.h>
 #include <SPI.h>
 #include <Adafruit_LIS3DH.h>
 #include <Adafruit_Sensor.h>
-#include <SD.h>
 
 // Used for software SPI
 #define LIS3DH_CLK 2
@@ -10,11 +12,6 @@
 #define LIS3DH_MOSI 4
 // Used for hardware & software SPI
 #define LIS3DH_CS 5
-const int 6 = CrackLEDR
-const int 7 = CrackLEDG
-const int 8 = DataIndicatorPin //Blue of RGB LED 
-
-File myFile;
 
 // software SPI
 Adafruit_LIS3DH lis = Adafruit_LIS3DH(LIS3DH_CS, LIS3DH_MOSI, LIS3DH_MISO, LIS3DH_CLK);
@@ -24,42 +21,15 @@ Adafruit_LIS3DH lis = Adafruit_LIS3DH(LIS3DH_CS, LIS3DH_MOSI, LIS3DH_MISO, LIS3D
 //Adafruit_LIS3DH lis = Adafruit_LIS3DH();
 
 void setup(void) {
-
-  //-------------------------------------------------
-  //Setting up Indicator lights
-  pinMode(CrackLEDR,OUTPUT);
-  pinMode(CrackLEDG,OUTPUT);
-  pinMode(DataIndicatorPin, OUTPUT);
-
-  digitalWrite(CrackLEDR, LOW);
-  digitalWrite(CrackLEDG, HIGH);
-  digitalWrite(DataIndicatorPin,LOW);
-  //-------------------------------------------------
-  
   Serial.begin(9600);
   while (!Serial) delay(10);     // will pause Zero, Leonardo, etc until serial console opens
+
+  Serial.println("LIS3DH test!");
 
   if (! lis.begin(0x18)) {   // change this to 0x19 for alternative i2c address
     Serial.println("Couldnt start");
     while (1) yield();
   }
-
-
-//-----------------------------------------------------------------------------------
-//Detect SD Card
-   Serial.print("Initializing SD card...");
-//SD CD on pin 10
-  if (!SD.begin(10)) {
-    Serial.println("initialization failed!");
-    while (1);
-  }
-  Serial.println("initialization done.");
-//-----------------------------------------------------------------------------------
-
-myFile = SD.open("Data.txt", FILE_WRITE);
-digitalWrite(DataIndicatorPin, HIGH);
-
-//Detect Accelerometer
   Serial.println("LIS3DH found!");
 
   // lis.setRange(LIS3DH_RANGE_4_G);   // 2, 4, 8 or 16 G!
@@ -82,38 +52,26 @@ digitalWrite(DataIndicatorPin, HIGH);
     case LIS3DH_DATARATE_LOWPOWER_5KHZ: Serial.println("5 Khz Low Power"); break;
     case LIS3DH_DATARATE_LOWPOWER_1K6HZ: Serial.println("16 Khz Low Power"); break;
   }
+}
 
+void loop() {
+  lis.read();      // get X Y and Z data at once
+  // Then print out the raw data
+  Serial.print("X:  "); Serial.print(lis.x);
+  Serial.print("  \tY:  "); Serial.print(lis.y);
+  Serial.print("  \tZ:  "); Serial.print(lis.z);
 
-
-
-  for (int i = 0; i<150; i++){
+  /* Or....get a new sensor event, normalized */
   sensors_event_t event;
   lis.getEvent(&event);
 
-  float ResultantAcceleration = sqrt(sq(event.acceleration.x)+sq(event.acceleration.y)+sq(event.acceleration.z));
   /* Display the results (acceleration is measured in m/s^2) */
   Serial.print("\t\tX: "); Serial.print(event.acceleration.x);
   Serial.print(" \tY: "); Serial.print(event.acceleration.y);
   Serial.print(" \tZ: "); Serial.print(event.acceleration.z);
   Serial.println(" m/s^2 ");
-  Serial.println("Total Acceleration");Serial.print(ResultantAcceleration);
+
   Serial.println();
 
-  
-  myFile.print(event.acceleration.x);myFile.print(" ");
-  myFile.print(event.acceleration.y);myFile.print(" ");
-  myFile.print(event.acceleration.z);myFile.print(" ");
-  myFile.print(ResultantAcceleration);myFile.print(" ");
-  myFile.println(" ");
-
   delay(200);
-  }
-  myFile.close();
-
 }
-
-void loop(){
-
-
-}
-  
