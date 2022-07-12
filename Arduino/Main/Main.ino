@@ -10,9 +10,15 @@
 #define LIS3DH_MOSI 4
 // Used for hardware & software SPI
 #define LIS3DH_CS 5
-const int 6 = CrackLEDR
-const int 7 = CrackLEDG
-const int 8 = DataIndicatorPin //Blue of RGB LED 
+#define CLICKTHRESHHOLD 99
+
+const int CrackLEDR = 6;
+const int CrackLEDG = 7;
+const int DataIndicatorPin = 8; //Blue of RGB LED
+float ResultantAcceleration = 0;
+float NewResultantAcceleration = 0;
+const int DropThreshold = 4;
+const int CrackThreshold = 8;
 
 File myFile;
 
@@ -23,19 +29,23 @@ Adafruit_LIS3DH lis = Adafruit_LIS3DH(LIS3DH_CS, LIS3DH_MOSI, LIS3DH_MISO, LIS3D
 // I2C
 //Adafruit_LIS3DH lis = Adafruit_LIS3DH();
 
+
+void WriteToCard();
+
+
 void setup(void) {
 
   //-------------------------------------------------
   //Setting up Indicator lights
-  pinMode(CrackLEDR,OUTPUT);
-  pinMode(CrackLEDG,OUTPUT);
+  pinMode(CrackLEDR, OUTPUT);
+  pinMode(CrackLEDG, OUTPUT);
   pinMode(DataIndicatorPin, OUTPUT);
 
   digitalWrite(CrackLEDR, LOW);
   digitalWrite(CrackLEDG, HIGH);
-  digitalWrite(DataIndicatorPin,LOW);
+  digitalWrite(DataIndicatorPin, LOW);
   //-------------------------------------------------
-  
+
   Serial.begin(9600);
   while (!Serial) delay(10);     // will pause Zero, Leonardo, etc until serial console opens
 
@@ -45,21 +55,19 @@ void setup(void) {
   }
 
 
-//-----------------------------------------------------------------------------------
-//Detect SD Card
-   Serial.print("Initializing SD card...");
-//SD CD on pin 10
+  //-----------------------------------------------------------------------------------
+  //Detect SD Card
+  Serial.print("Initializing SD card...");
+  //SD CD on pin 10
   if (!SD.begin(10)) {
     Serial.println("initialization failed!");
     while (1);
   }
   Serial.println("initialization done.");
-//-----------------------------------------------------------------------------------
+  //-----------------------------------------------------------------------------------
 
-myFile = SD.open("Data.txt", FILE_WRITE);
-digitalWrite(DataIndicatorPin, HIGH);
 
-//Detect Accelerometer
+  //Detect Accelerometer
   Serial.println("LIS3DH found!");
 
   // lis.setRange(LIS3DH_RANGE_4_G);   // 2, 4, 8 or 16 G!
@@ -84,36 +92,71 @@ digitalWrite(DataIndicatorPin, HIGH);
   }
 
 
-
-
-  for (int i = 0; i<150; i++){
-  sensors_event_t event;
-  lis.getEvent(&event);
-
-  float ResultantAcceleration = sqrt(sq(event.acceleration.x)+sq(event.acceleration.y)+sq(event.acceleration.z));
-  /* Display the results (acceleration is measured in m/s^2) */
-  Serial.print("\t\tX: "); Serial.print(event.acceleration.x);
-  Serial.print(" \tY: "); Serial.print(event.acceleration.y);
-  Serial.print(" \tZ: "); Serial.print(event.acceleration.z);
-  Serial.println(" m/s^2 ");
-  Serial.println("Total Acceleration");Serial.print(ResultantAcceleration);
-  Serial.println();
-
-  
-  myFile.print(event.acceleration.x);myFile.print(" ");
-  myFile.print(event.acceleration.y);myFile.print(" ");
-  myFile.print(event.acceleration.z);myFile.print(" ");
-  myFile.print(ResultantAcceleration);myFile.print(" ");
-  myFile.println(" ");
-
-  delay(200);
-  }
-  myFile.close();
+   lis.setClick(2, CLICKTHRESHHOLD);
 
 }
 
-void loop(){
 
+
+
+  void loop() {
+
+    while (true) {
+      uint8_t click = lis.getClick();
+      if (click == 0) return;
+      if (! (click & 0x30)) return;
+      Serial.print("Click detected (0x"); Serial.print(click, HEX); Serial.print("): ");
+      if (click & 0x10){   
+            
+      myFile = SD.open("Data.txt", FILE_WRITE);
+       digitalWrite(DataIndicatorPin, HIGH);
+       
+        break;
+      }
+    }
+    while (true) {
+      sensors_event_t event;
+      lis.getEvent(&event);
+      ResultantAcceleration = sqrt(sq(abs(event.acceleration.x)) + sq(abs(event.acceleration.y)) + sq(abs(event.acceleration.z)));
+    WriteToCard();
+    NewResultantAcceleration = sqrt(sq(abs(event.acceleration.x)) + sq(abs(event.acceleration.y)) + sq(abs(event.acceleration.z)));
+    if (abs(ResultantAcceleration - NewResultantAcceleration) > DropThreshold) break;
+    if (abs(ResultantAcceleration - NewResultantAcceleration) > CrackThreshold){
+      digitalWrite(CrackLEDG, LOW);
+      digitalWrite(CrackLEDR, HIGH);
+      break;
+    }
+    }
+    for (int i=0;i<25;i++){
+        WriteToCard();
+      }
+    myFile.close();
+    digitalWrite(DataIndicatorPin, LOW);
+delay (5000);
+  
 
 }
-  
+
+void WriteToCard(){
+        sensors_event_t event;
+      lis.getEvent(&event);
+
+      ResultantAcceleration = sqrt(sq(abs(event.acceleration.x)) + sq(abs(event.acceleration.y)) + sq(abs(event.acceleration.z)));
+      /* Display the results (acceleration is measured in m/s^2) */
+      Serial.print("\t\tX: "); Serial.print(event.acceleration.x);
+      Serial.print(" \tY: "); Serial.print(event.acceleration.y);
+      Serial.print(" \tZ: "); Serial.print(event.acceleration.z);
+      Serial.println(" m/s^2 ");
+      Serial.println("Total Acceleration"); Serial.print(ResultantAcceleration);
+      Serial.println();
+
+      myFile.print(event.acceleration.x); myFile.print(" ");
+      myFile.print(event.acceleration.y); myFile.print(" ");
+      myFile.print(event.acceleration.z); myFile.print(" ");
+      myFile.print(ResultantAcceleration); myFile.print(" ");
+      myFile.println(" ");
+
+      delay(200);
+
+      
+}
