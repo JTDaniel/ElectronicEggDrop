@@ -1,0 +1,4 @@
+(sym_lib_table
+  (lib (name "ElectronicEggDrop-eagle-import")(type "KiCad")(uri "${KIPRJMOD}/ElectronicEggDrop-eagle-import.kicad_sym")(options "")(descr ""))
+  (lib (name "ABX00053")(type "Legacy")(uri "/home/jtravis/Projects/ElectronicEggDrop/Electronics/ImportedParts/Arduino Nano/ABX00053.lib")(options "")(descr ""))
+)

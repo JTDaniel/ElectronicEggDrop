@@ -10,7 +10,7 @@
 #define LIS3DH_MOSI 4
 // Used for hardware & software SPI
 #define LIS3DH_CS 5
-#define CLICKTHRESHHOLD 99
+#define CLICKTHRESHHOLD 5
 
 const int CrackLEDR = 6;
 const int CrackLEDG = 7;
@@ -113,6 +113,8 @@ void setup(void) {
        
         break;
       }
+      myFile.println("New Data Set");
+      myFile.println("-------------------------------------");
     }
     while (true) {
       sensors_event_t event;
@@ -130,6 +132,7 @@ void setup(void) {
     for (int i=0;i<25;i++){
         WriteToCard();
       }
+    myFile.println("-------------------------------------");
     myFile.close();
     digitalWrite(DataIndicatorPin, LOW);
 delay (5000);
