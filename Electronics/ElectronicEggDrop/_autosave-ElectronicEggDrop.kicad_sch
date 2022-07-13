@@ -1039,7 +1039,7 @@
   (symbol (lib_id "Device:R") (at 220.98 101.6 90) (unit 1)
     (in_bom yes) (on_board yes)
     (uuid 1cc56aee-2767-4a3b-9d4c-5a6627626533)
-    (property "Reference" "R?" (id 0) (at 220.98 101.6 90))
+    (property "Reference" "R3" (id 0) (at 220.98 101.6 90))
     (property "Value" "R" (id 1) (at 224.79 102.87 90))
     (property "Footprint" "Resistor_THT:R_Axial_DIN0204_L3.6mm_D1.6mm_P5.08mm_Horizontal" (id 2) (at 220.98 103.378 90)
       (effects (font (size 1.27 1.27)) hide)
@@ -1071,7 +1071,7 @@
   (symbol (lib_id "Device:R") (at 220.98 91.44 90) (unit 1)
     (in_bom yes) (on_board yes)
     (uuid 27354c14-7ea3-4310-8f3a-463ad49a3e7f)
-    (property "Reference" "R?" (id 0) (at 220.98 91.44 90))
+    (property "Reference" "R1" (id 0) (at 220.98 91.44 90))
     (property "Value" "R" (id 1) (at 224.79 92.71 90))
     (property "Footprint" "Resistor_THT:R_Axial_DIN0204_L3.6mm_D1.6mm_P5.08mm_Horizontal" (id 2) (at 220.98 93.218 90)
       (effects (font (size 1.27 1.27)) hide)
@@ -1103,9 +1103,9 @@
   (symbol (lib_id "Switch:SW_SPST") (at 160.02 69.85 0) (unit 1)
     (in_bom yes) (on_board yes) (fields_autoplaced)
     (uuid 3bd3481f-6f6f-4cff-8d9c-7c9dc14e3fc3)
-    (property "Reference" "SW?" (id 0) (at 160.02 63.5 0))
+    (property "Reference" "Power_SW1" (id 0) (at 160.02 63.5 0))
     (property "Value" "SW_SPST" (id 1) (at 160.02 66.04 0))
-    (property "Footprint" "" (id 2) (at 160.02 69.85 0)
+    (property "Footprint" "Connector_Molex:Molex_KK-254_AE-6410-02A_1x02_P2.54mm_Vertical" (id 2) (at 160.02 69.85 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Datasheet" "~" (id 3) (at 160.02 69.85 0)
@@ -1118,7 +1118,7 @@
   (symbol (lib_id "Connector:Conn_01x06_Male") (at 157.48 142.24 90) (unit 1)
     (in_bom yes) (on_board yes) (fields_autoplaced)
     (uuid 432a2ef5-8c4c-4a55-bf4b-ba5b90ca0b70)
-    (property "Reference" "J?" (id 0) (at 158.75 144.78 90))
+    (property "Reference" "LIS3DH_Connector1" (id 0) (at 158.75 144.78 90))
     (property "Value" "Conn_01x06_Male" (id 1) (at 158.75 147.32 90))
     (property "Footprint" "Connector_Molex:Molex_KK-254_AE-6410-06A_1x06_P2.54mm_Vertical" (id 2) (at 157.48 142.24 0)
       (effects (font (size 1.27 1.27)) hide)
@@ -1137,7 +1137,7 @@
   (symbol (lib_id "Device:R") (at 220.98 96.52 90) (unit 1)
     (in_bom yes) (on_board yes)
     (uuid 83455da2-0ebd-405c-8668-8efde92b2d08)
-    (property "Reference" "R?" (id 0) (at 220.98 96.52 90))
+    (property "Reference" "R2" (id 0) (at 220.98 96.52 90))
     (property "Value" "R" (id 1) (at 224.79 97.79 90))
     (property "Footprint" "Resistor_THT:R_Axial_DIN0204_L3.6mm_D1.6mm_P5.08mm_Horizontal" (id 2) (at 220.98 98.298 90)
       (effects (font (size 1.27 1.27)) hide)
@@ -1152,7 +1152,7 @@
   (symbol (lib_id "power:GND") (at 147.32 118.11 0) (unit 1)
     (in_bom yes) (on_board yes) (fields_autoplaced)
     (uuid af7d1780-278a-4463-9202-e431edff4abf)
-    (property "Reference" "#PWR?" (id 0) (at 147.32 124.46 0)
+    (property "Reference" "#PWR0101" (id 0) (at 147.32 124.46 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "GND" (id 1) (at 147.32 123.19 0))
@@ -1168,13 +1168,13 @@
   (symbol (lib_id "Connector:Screw_Terminal_01x02") (at 223.52 69.85 0) (unit 1)
     (in_bom yes) (on_board yes) (fields_autoplaced)
     (uuid c79642f2-5f2f-4055-93db-5cce65ec58b5)
-    (property "Reference" "J?" (id 0) (at 226.06 69.8499 0)
+    (property "Reference" "Power_Terminal1" (id 0) (at 226.06 69.8499 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
     (property "Value" "Screw_Terminal_01x02" (id 1) (at 226.06 72.3899 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
-    (property "Footprint" "" (id 2) (at 223.52 69.85 0)
+    (property "Footprint" "TerminalBlock_Phoenix:TerminalBlock_Phoenix_MPT-0,5-2-2.54_1x02_P2.54mm_Horizontal" (id 2) (at 223.52 69.85 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Datasheet" "~" (id 3) (at 223.52 69.85 0)
@@ -1187,7 +1187,7 @@
   (symbol (lib_id "Connector:Conn_01x06_Male") (at 180.34 142.24 90) (unit 1)
     (in_bom yes) (on_board yes) (fields_autoplaced)
     (uuid c93ef0e7-749a-4bd6-b03c-c57ac7336301)
-    (property "Reference" "J?" (id 0) (at 181.61 144.78 90))
+    (property "Reference" "SD_Card_Reader_Connector1" (id 0) (at 181.61 144.78 90))
     (property "Value" "Conn_01x06_Male" (id 1) (at 181.61 147.32 90))
     (property "Footprint" "Connector_Molex:Molex_KK-254_AE-6410-06A_1x06_P2.54mm_Vertical" (id 2) (at 180.34 142.24 0)
       (effects (font (size 1.27 1.27)) hide)
@@ -1223,7 +1223,7 @@
   (symbol (lib_id "ABX00053:ABX00053") (at 121.92 92.71 0) (unit 1)
     (in_bom yes) (on_board yes) (fields_autoplaced)
     (uuid e0dad96b-23b2-46bc-93d4-eedf18ddd013)
-    (property "Reference" "U?" (id 0) (at 121.92 62.23 0))
+    (property "Reference" "Arduino_Nano1" (id 0) (at 121.92 62.23 0))
     (property "Value" "ABX00053" (id 1) (at 121.92 64.77 0))
     (property "Footprint" "MODULE_ABX00053" (id 2) (at 121.92 92.71 0)
       (effects (font (size 1.27 1.27)) (justify left bottom) hide)
@@ -1275,9 +1275,9 @@
   (symbol (lib_id "Device:LED_RAGB") (at 234.95 96.52 0) (unit 1)
     (in_bom yes) (on_board yes) (fields_autoplaced)
     (uuid f7aa1d10-f8d1-4fe6-acb4-10abc2244f09)
-    (property "Reference" "D?" (id 0) (at 234.95 82.55 0))
+    (property "Reference" "Indicator_LEDs1" (id 0) (at 234.95 82.55 0))
     (property "Value" "LED_RAGB" (id 1) (at 234.95 85.09 0))
-    (property "Footprint" "Connector_Molex:Molex_Mega-Fit_76829-0106_2x03_P5.70mm_Vertical" (id 2) (at 234.95 97.79 0)
+    (property "Footprint" "Connector_Molex:Molex_KK-254_AE-6410-04A_1x04_P2.54mm_Vertical" (id 2) (at 234.95 97.79 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Datasheet" "~" (id 3) (at 234.95 97.79 0)
@@ -1295,10 +1295,10 @@
 
   (symbol_instances
     (path "/af7d1780-278a-4463-9202-e431edff4abf"
-      (reference "#PWR?") (unit 1) (value "GND") (footprint "")
+      (reference "#PWR0101") (unit 1) (value "GND") (footprint "")
     )
-    (path "/f7aa1d10-f8d1-4fe6-acb4-10abc2244f09"
-      (reference "D?") (unit 1) (value "LED_RAGB") (footprint "Connector_Molex:Molex_Mega-Fit_76829-0106_2x03_P5.70mm_Vertical")
+    (path "/e0dad96b-23b2-46bc-93d4-eedf18ddd013"
+      (reference "Arduino_Nano1") (unit 1) (value "ABX00053") (footprint "MODULE_ABX00053")
     )
     (path "/0ab1aabe-6d15-4feb-8511-7c76d8512d24"
       (reference "FID1") (unit 1) (value "FIDUCIAL{dblquote}{dblquote}") (footprint "ElectronicEggDrop:FIDUCIAL_1MM")
@@ -1306,35 +1306,35 @@
     (path "/34e8ec4b-9bdf-4003-8a83-f6754d33a10c"
       (reference "FID2") (unit 1) (value "FIDUCIAL{dblquote}{dblquote}") (footprint "ElectronicEggDrop:FIDUCIAL_1MM")
     )
+    (path "/f7aa1d10-f8d1-4fe6-acb4-10abc2244f09"
+      (reference "Indicator_LEDs1") (unit 1) (value "LED_RAGB") (footprint "Connector_Molex:Molex_KK-254_AE-6410-04A_1x04_P2.54mm_Vertical")
+    )
     (path "/432a2ef5-8c4c-4a55-bf4b-ba5b90ca0b70"
-      (reference "J?") (unit 1) (value "Conn_01x06_Male") (footprint "Connector_Molex:Molex_KK-254_AE-6410-06A_1x06_P2.54mm_Vertical")
-    )
-    (path "/c79642f2-5f2f-4055-93db-5cce65ec58b5"
-      (reference "J?") (unit 1) (value "Screw_Terminal_01x02") (footprint "")
-    )
-    (path "/c93ef0e7-749a-4bd6-b03c-c57ac7336301"
-      (reference "J?") (unit 1) (value "Conn_01x06_Male") (footprint "Connector_Molex:Molex_KK-254_AE-6410-06A_1x06_P2.54mm_Vertical")
-    )
-    (path "/1cc56aee-2767-4a3b-9d4c-5a6627626533"
-      (reference "R?") (unit 1) (value "R") (footprint "Resistor_THT:R_Axial_DIN0204_L3.6mm_D1.6mm_P5.08mm_Horizontal")
-    )
-    (path "/27354c14-7ea3-4310-8f3a-463ad49a3e7f"
-      (reference "R?") (unit 1) (value "R") (footprint "Resistor_THT:R_Axial_DIN0204_L3.6mm_D1.6mm_P5.08mm_Horizontal")
-    )
-    (path "/83455da2-0ebd-405c-8668-8efde92b2d08"
-      (reference "R?") (unit 1) (value "R") (footprint "Resistor_THT:R_Axial_DIN0204_L3.6mm_D1.6mm_P5.08mm_Horizontal")
+      (reference "LIS3DH_Connector1") (unit 1) (value "Conn_01x06_Male") (footprint "Connector_Molex:Molex_KK-254_AE-6410-06A_1x06_P2.54mm_Vertical")
     )
     (path "/3bd3481f-6f6f-4cff-8d9c-7c9dc14e3fc3"
-      (reference "SW?") (unit 1) (value "SW_SPST") (footprint "")
+      (reference "Power_SW1") (unit 1) (value "SW_SPST") (footprint "Connector_Molex:Molex_KK-254_AE-6410-02A_1x02_P2.54mm_Vertical")
+    )
+    (path "/c79642f2-5f2f-4055-93db-5cce65ec58b5"
+      (reference "Power_Terminal1") (unit 1) (value "Screw_Terminal_01x02") (footprint "TerminalBlock_Phoenix:TerminalBlock_Phoenix_MPT-0,5-2-2.54_1x02_P2.54mm_Horizontal")
+    )
+    (path "/27354c14-7ea3-4310-8f3a-463ad49a3e7f"
+      (reference "R1") (unit 1) (value "R") (footprint "Resistor_THT:R_Axial_DIN0204_L3.6mm_D1.6mm_P5.08mm_Horizontal")
+    )
+    (path "/83455da2-0ebd-405c-8668-8efde92b2d08"
+      (reference "R2") (unit 1) (value "R") (footprint "Resistor_THT:R_Axial_DIN0204_L3.6mm_D1.6mm_P5.08mm_Horizontal")
+    )
+    (path "/1cc56aee-2767-4a3b-9d4c-5a6627626533"
+      (reference "R3") (unit 1) (value "R") (footprint "Resistor_THT:R_Axial_DIN0204_L3.6mm_D1.6mm_P5.08mm_Horizontal")
+    )
+    (path "/c93ef0e7-749a-4bd6-b03c-c57ac7336301"
+      (reference "SD_Card_Reader_Connector1") (unit 1) (value "Conn_01x06_Male") (footprint "Connector_Molex:Molex_KK-254_AE-6410-06A_1x06_P2.54mm_Vertical")
     )
     (path "/1d853ae8-ce78-4e5a-8c2a-2d6b4dce02f7"
       (reference "U$10") (unit 1) (value "MOUNTINGHOLE2.5") (footprint "ElectronicEggDrop:MOUNTINGHOLE_2.5_PLATED")
     )
     (path "/c989cce4-fbe3-40ae-b140-5d19428dc3d5"
       (reference "U$13") (unit 1) (value "MOUNTINGHOLE2.5") (footprint "ElectronicEggDrop:MOUNTINGHOLE_2.5_PLATED")
-    )
-    (path "/e0dad96b-23b2-46bc-93d4-eedf18ddd013"
-      (reference "U?") (unit 1) (value "ABX00053") (footprint "MODULE_ABX00053")
     )
   )
 )
