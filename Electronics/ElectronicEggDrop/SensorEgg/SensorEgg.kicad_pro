@@ -333,7 +333,7 @@
     "pinned_symbol_libs": []
   },
   "meta": {
-    "filename": "ElectronicEggDrop.kicad_pro",
+    "filename": "SensorEgg.kicad_pro",
     "version": 1
   },
   "net_settings": {
@@ -363,12 +363,12 @@
   },
   "pcbnew": {
     "last_paths": {
-      "gencad": "ElectronicEggDrop.cad",
+      "gencad": "",
       "idf": "",
       "netlist": "",
       "specctra_dsn": "",
-      "step": "ElectronicEggDrop.step",
-      "vrml": "ElectronicEggDrop.wrl"
+      "step": "SensorEgg.step",
+      "vrml": "SensorEgg.wrl"
     },
     "page_layout_descr_file": ""
   },
@@ -403,7 +403,7 @@
       "model_mode": 0,
       "workbook_filename": ""
     },
-    "page_layout_descr_file": "empty.kicad_wks",
+    "page_layout_descr_file": "",
     "plot_directory": "",
     "spice_adjust_passive_values": false,
     "spice_external_command": "spice \"%I\"",
@@ -412,7 +412,7 @@
   },
   "sheets": [
     [
-      "ed425b2f-5deb-4cd4-bc8b-8978a49c6b78",
+      "08447e8a-92ba-446e-8724-2f0826fc8bbd",
       ""
     ]
   ],
