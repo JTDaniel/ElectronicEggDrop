@@ -983,7 +983,7 @@
     (uuid 3bd3481f-6f6f-4cff-8d9c-7c9dc14e3fc3)
     (property "Reference" "Power_SW1" (id 0) (at 149.86 71.12 0))
     (property "Value" "SW_SPST" (id 1) (at 149.86 73.66 0))
-    (property "Footprint" "Connector_Molex:Molex_KK-254_AE-6410-02A_1x02_P2.54mm_Vertical" (id 2) (at 149.86 77.47 0)
+    (property "Footprint" "Connector_PinSocket_2.54mm:PinSocket_1x02_P2.54mm_Vertical" (id 2) (at 149.86 77.47 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Datasheet" "~" (id 3) (at 149.86 77.47 0)
@@ -1187,7 +1187,7 @@
       (reference "LIS3DH_Connector1") (unit 1) (value "Conn_01x06_Male") (footprint "Connector_PinSocket_2.54mm:PinSocket_1x06_P2.54mm_Vertical")
     )
     (path "/3bd3481f-6f6f-4cff-8d9c-7c9dc14e3fc3"
-      (reference "Power_SW1") (unit 1) (value "SW_SPST") (footprint "Connector_Molex:Molex_KK-254_AE-6410-02A_1x02_P2.54mm_Vertical")
+      (reference "Power_SW1") (unit 1) (value "SW_SPST") (footprint "Connector_PinSocket_2.54mm:PinSocket_1x02_P2.54mm_Vertical")
     )
     (path "/c79642f2-5f2f-4055-93db-5cce65ec58b5"
       (reference "Power_Terminal1") (unit 1) (value "Screw_Terminal_01x02") (footprint "Connector_JST:JST_PH_S2B-PH-K_1x02_P2.00mm_Horizontal")
