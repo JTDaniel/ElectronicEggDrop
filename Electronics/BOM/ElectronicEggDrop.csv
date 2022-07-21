@@ -1,0 +1,7 @@
+"Id";"Designator";"Package";"Quantity";"Designation";"Supplier and ref";
+1;"Arduino Nano";"MODULE_ABX00053";1;"ABX00053";;;
+2;"+3.7v,+3.7V";"JST_PH_S2B-PH-K_1x02_P2.00mm_Horizontal";2;"Screw_Terminal_01x02";;;
+3;"R2,R3,R1";"R_Axial_DIN0204_L3.6mm_D1.6mm_P5.08mm_Horizontal";3;"R";;;
+4;"Indicator_LEDs1";"PinSocket_2x03_P2.54mm_Vertical";1;"LED_RAGB";;;
+5;"Switch";"PinSocket_1x02_P2.54mm_Vertical";1;"SW_SPST";;;
+6;"LIS3DH Connector,SD Card Reader Connector";"PinSocket_1x06_P2.54mm_Vertical";2;"Conn_01x06_Male";;;
